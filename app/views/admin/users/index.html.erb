@@ -1,3 +1,13 @@
+<h1>All Users</h1>
+
 <% @users.each do |user| %>
-<%= user.firstname %> <%= user.lastname %><br/>
+<%= user.firstname %> <%= user.lastname %>
+<td><%= link_to "edit", edit_admin_user_path(user) %></td>
+<td><%= link_to "delete", admin_user_path(user), method: :delete, data: { confirm: "You sure?" } %> </td></br>
+
 <% end %>
+
+<%= paginate @users %><br/>
+
+
+<%= link_to "create a new user as admin", new_admin_user_path %>
